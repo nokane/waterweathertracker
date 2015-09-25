@@ -1,2 +1,10 @@
+branch-defaults:
+  master:
+    environment: waterweathertracker-dev
 global:
+  application_name: waterweathertracker
+  default_ec2_keyname: wwtracker_pair
+  default_platform: Python 2.7
+  default_region: us-west-2
   profile: eb-cli
+  sc: git
