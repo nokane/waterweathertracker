@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: waterweathertracker-dev
+    environment: waterweathertracker
 global:
   application_name: waterweathertracker
   default_ec2_keyname: wwtracker_pair
