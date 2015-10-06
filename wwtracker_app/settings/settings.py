@@ -14,8 +14,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import ConfigParser
 if os.environ['USER'] == 'niallokane':
+    print "LOCAL"
     from local import *
 else:
+    print "PROD"
     from prod import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
