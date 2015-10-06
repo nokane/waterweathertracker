@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import ConfigParser
-if os.environ['USER'] == 'niallokane':
+if 'USER' in os.environ['USER']:
     print "LOCAL"
     from local import *
 else:
