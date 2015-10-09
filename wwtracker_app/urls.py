@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+
 from . import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view()),
-]
+    url(r'^state/', include('wwtracker_app.api.urls'))
+  ]
