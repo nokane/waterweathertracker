@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
+from states.views import StateList
 from . import views
 
-urlpatterns = [
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view()),
-    url(r'^state/', include('wwtracker_app.api.urls'))
-  ]
+    url(r'^api/states/$', StateList.as_view(), name="states")
+)
