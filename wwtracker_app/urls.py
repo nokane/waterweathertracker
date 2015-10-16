@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from states.views import StateList
+from waters.views import WaterList
 from . import views
 
 urlpatterns = patterns(
     '',
     url(r'^$', views.IndexView.as_view()),
-    url(r'^api/states/$', StateList.as_view(), name="states")
+    url(r'^api/states/$', StateList.as_view(), name="states"),
+    url(r'^api/water/$', WaterList.as_view(), name="water"),
 )
