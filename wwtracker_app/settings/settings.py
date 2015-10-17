@@ -19,12 +19,7 @@ if 'USER' in os.environ:
 else:
     print "PROD"
     from prod import *
-
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-print BASE_DIR
-
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', '..'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
