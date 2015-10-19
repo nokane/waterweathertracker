@@ -1,6 +1,5 @@
 .DS_Store
 *.pyc
-*.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
