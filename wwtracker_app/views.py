@@ -5,4 +5,4 @@ from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
 class IndexView(generic.TemplateView):
-    template_name = 'home/index.html'
+    template_name = 'index.html'

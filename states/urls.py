@@ -6,7 +6,6 @@ from .views import StateList, StateDetail
 
 urlpatterns = patterns('',
   url(r'^api/$', StateList.as_view()),
-  url(r'^api/(?P<pk>[0-9]+)/$', StateDetail.as_view()),
   )
 
 # urlpatterns = format_suffix_patterns(urlpatterns)

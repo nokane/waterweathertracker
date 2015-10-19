@@ -1,6 +1,6 @@
 .DS_Store
 *.pyc
-*.json
+bower_components
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
