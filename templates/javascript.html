@@ -2,18 +2,23 @@
 {% load staticfiles %}
 
 {% compress js %}
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDUm5bL-lPp59kFSMpNlmDHX9XtItUvIxs"></script>
 <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/material.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/bootstrap-material-design/dist/js/ripples.js' %}"></script>
 
-<script type="text/javascript" src="{% static 'bower_components/angular/angular.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/angular/angular.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/angular-cookies/angular-cookies.js' %}"></script>
 
 <script type="text/javascript" src="{% static 'bower_components/ng-dialog/js/ngDialog.min.js' %}"></script>
 
 
+<script type="text/javascript" src="{% static 'js/states/services/states.service.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/map/services/map.service.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/map/controllers/map.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/wwtracker.js' %}"></script>
 
 {% endcompress %}
