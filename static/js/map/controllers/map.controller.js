@@ -2,9 +2,9 @@ angular
   .module('wwtracker.map.controllers', [])
   .controller('MapController', MapController);
 
-MapController.$inject = ['$scope', 'Map'];
+MapController.$inject = ['$scope', 'Map', 'Water'];
 
-function MapController($scope, Map) {
+function MapController($scope, Map, Water) {
 
   var mapOptions = {
         zoom: 5,
@@ -13,5 +13,11 @@ function MapController($scope, Map) {
   $scope.markers = [];
   $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  Water.allWater().then(function(data) {
+    var allData = data.data;
+    for (var i = 0; i < allData.length; i++) {
+      $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name))
+    }
+  });
 };
 

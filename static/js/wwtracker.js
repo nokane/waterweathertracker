@@ -2,7 +2,8 @@ var wwtracker = angular.module('wwtracker', [
       'ui.router',
       'wwtracker.states.services',
       'wwtracker.map.controllers',
-      'wwtracker.map.services'
+      'wwtracker.map.services',
+      'wwtracker.water.services'
     ]);
 
 wwtracker.config(function($stateProvider, $urlRouterProvider) {
