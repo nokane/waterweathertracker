@@ -1,5 +1,8 @@
 var wwtracker = angular.module('wwtracker', [
-      'ui.router'
+      'ui.router',
+      'wwtracker.states.services',
+      'wwtracker.map.controllers',
+      'wwtracker.map.services'
     ]);
 
 wwtracker.config(function($stateProvider, $urlRouterProvider) {
@@ -9,7 +12,8 @@ wwtracker.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('map', {
             url: '/map',
-            templateUrl: 'static/templates/map/map.html'
+            templateUrl: 'static/templates/map/map.html',
+            controller: MapController
         })
                 
 });
