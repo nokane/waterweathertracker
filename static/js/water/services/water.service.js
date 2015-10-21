@@ -1,8 +1,8 @@
 function Water($http) {
 
     var allWater = function() {
-      return $http.get('/api/water/');
-    }
+      return $http.get('/api/water/all');
+    };
 
     var Water = {
       allWater: allWater
