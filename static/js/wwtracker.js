@@ -1,5 +1,6 @@
 var wwtracker = angular.module('wwtracker', [
       'ui.router',
+      'ui.bootstrap',
       'wwtracker.states.services',
       'wwtracker.map.controllers',
       'wwtracker.map.services',
