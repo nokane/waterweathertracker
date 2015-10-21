@@ -2,3 +2,9 @@
   height: 500px;
   width: 700px;
 }
+
+.dropdown-scroll {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
