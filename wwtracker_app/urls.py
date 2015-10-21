@@ -23,5 +23,5 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.IndexView.as_view()),
     url(r'^api/states/$', StateList.as_view(), name="states"),
-    url(r'^api/water/$', WaterList.as_view(), name="water"),
+    url(r'^api/water/(?P<state>.+)/$', WaterList.as_view(), name="water"),
 )

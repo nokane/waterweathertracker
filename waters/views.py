@@ -5,5 +5,10 @@ from models import Water
 
 class WaterList(generics.ListCreateAPIView):
     model = Water
-    queryset = Water.objects.all()
     serializer_class = WaterSerializer
+    def get_queryset(self):
+        state = self.kwargs['state']
+        if state == 'all':
+            return Water.objects.all()
+        else:
+            return Water.objects.filter(state__name=state)
