@@ -18,6 +18,7 @@ function MapController($scope, Map, Water) {
     for (var i = 0; i < allData.length; i++) {
       $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name))
     }
+    $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
   });
 };
 
