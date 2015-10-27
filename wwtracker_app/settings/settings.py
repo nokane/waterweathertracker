@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'djangobower',
     'rest_framework',
     'states',
     'compressor',
@@ -122,6 +123,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+    'djangobower.finders.BowerFinder',
 )
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static', 'bower_components')
 
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
