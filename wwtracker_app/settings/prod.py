@@ -12,3 +12,4 @@ DATABASES = {
         'PORT': os.environ['RDS_PORT'],
     }
 }
+BOWER_PATH = '/usr/bin/bower'

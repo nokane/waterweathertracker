@@ -119,12 +119,22 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+BOWER_INSTALLED_APPS = (
+    "jquery#2.1.4",
+    "angular-ui-router#~0.2.15",
+    "angular#~1.4.7",
+    "bootstrap#~3.3.5",
+    "bootstrap-material-design",
+    "angular-bootstrap",
+    "ng-dialog"
+)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
     'djangobower.finders.BowerFinder',
 )
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static', 'bower_components')
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
 
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
