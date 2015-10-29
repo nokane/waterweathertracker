@@ -1,0 +1,10 @@
+<div id="water-list">
+  A list of Rivers for Each State
+  <uib-accordion>
+    <uib-accordion-group ng-repeat="(key, value) in statewater" heading="{{key}}">
+      <ul role="menu">
+        <li tabindex="-1" ng-repeat="water in value" role="menuitem"><a href="#">{{water.name}}</a></li>
+      </ul>
+    </uib-accordion-group>
+  </uib-accordion>
+</div>
