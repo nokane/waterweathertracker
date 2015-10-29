@@ -3,6 +3,7 @@ wwtracker.directive('statelist', function () {
     restrict: 'EA',
     scope: {
         states: "=",
+        currentstate: "=",
         eventHandler: '&onClick'
     },
     transclude: true,

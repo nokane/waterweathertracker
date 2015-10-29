@@ -14,20 +14,27 @@ function MapController($scope, Map, Water, State) {
   $scope.states = [];
   $scope.lookupState = undefined;
   $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  $scope.stateWater = {};
+  $scope.currentstate = {name: ''};
+
   $scope.searchState = function(state) {
       Water.queryState(state.name).then(function(data) {
         var allData = data.data;
+        $scope.stateWater[state] = [];
         for (var i = 0; i < allData.length; i++) {
-          $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name))
+          $scope.stateWater[state].push(allData[i]);
+          $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
         }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
-        console.log($scope.map);
+        $scope.currentstate.name = state.name;
       });
-  }
+  };
   State.allStates().then(function(data) {
     for (var i = 0; i < data.data.length; i++) {
       $scope.states.push(data.data[i]);
     }
+    $scope.currentstate.name = "Select State";
+
   });
 
 };
