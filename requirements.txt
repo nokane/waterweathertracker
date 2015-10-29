@@ -7,6 +7,7 @@ configparser==3.3.0.post2
 Django==1.8.4
 django-appconf==1.0.1
 django-bootstrap3==6.2.2
+django-bower==5.0.4
 django-compressor==1.5
 django-filter==0.11.0
 django-pipeline==1.5.4
@@ -21,6 +22,7 @@ Markdown==2.6.2
 pathspec==0.3.3
 psycopg2==2.6.1
 PyExecJS==1.1.0
+PyReact==0.5.2
 python-dateutil==2.4.2
 PyYAML==3.11
 requests==2.6.2

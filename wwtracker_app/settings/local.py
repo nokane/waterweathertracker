@@ -12,7 +12,7 @@ DATABASE_USER = config.get('database', 'USER')
 DATABASE_PASSWORD = config.get('database', 'PASSWORD')
 DATABASE_HOST = config.get('database', 'HOST')
 DATABASE_PORT = config.get('database', 'PORT')
-
+BOWER_PATH = '/usr/local/bin/bower'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
