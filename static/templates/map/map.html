@@ -1,3 +1,11 @@
-<div statelist states="states" currentstate="currentstate" lookupState="lookupState" on-click="searchState(lookupState)"></div>
-<div id="map"></div>
-<div id="markers" ng-repeat="marker in markers">
+<div id="asset-container">
+  <div id="state-container">
+    <div id="state-list" statelist states="states" currentstate="currentstate" lookupState="lookupState" on-click="searchState(lookupState)">
+    </div>
+    <div waterlist statewater="stateWater"></div>
+  </div>
+  <div id="map-container">
+    <div id="map"></div>
+    <div id="markers" ng-repeat="marker in markers"></div>
+  </div>
+</div>

@@ -16,13 +16,13 @@ function MapController($scope, Map, Water, State) {
   $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
   $scope.stateWater = {};
   $scope.currentstate = {name: ''};
-
+  $scope.oneAtATime = true;
   $scope.searchState = function(state) {
       Water.queryState(state.name).then(function(data) {
         var allData = data.data;
-        $scope.stateWater[state] = [];
+        $scope.stateWater[state.name] = [];
         for (var i = 0; i < allData.length; i++) {
-          $scope.stateWater[state].push(allData[i]);
+          $scope.stateWater[state.name].push(allData[i]);
           $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
         }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
