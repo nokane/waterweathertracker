@@ -17,6 +17,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from states.views import StateList
 from waters.views import WaterList
+from measurements.views import MeasurementList
 from . import views
 
 urlpatterns = patterns(
@@ -24,4 +25,6 @@ urlpatterns = patterns(
     url(r'^$', views.IndexView.as_view()),
     url(r'^api/states/$', StateList.as_view(), name="states"),
     url(r'^api/water/(?P<state>.+)/$', WaterList.as_view(), name="water"),
+    url(r'^api/measurement/(?P<bodyId>.+)/$', MeasurementList.as_view(), name="measurement"),
 )
+
