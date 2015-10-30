@@ -8,3 +8,27 @@
     max-height: 200px;
     overflow-x: hidden;
 }
+
+#state-container {
+  border: 2px solid black;
+  display: inline-block;
+  height: 550px;
+  width: 300px;
+  vertical-align: top;
+  overflow: auto;
+}
+
+#map-container {
+  border: 2px solid red;
+  display: inline-block;
+  width: 725px;
+  height: 550px;
+}
+
+#state-list {
+  text-align: center;
+}
+
+#water-list {
+
+}
