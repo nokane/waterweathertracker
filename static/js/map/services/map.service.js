@@ -6,7 +6,18 @@ function Map($http) {
         'map': map,
         'title': title
       });
+      marker.setOptions({'opacity': 0.4});
       return marker
+    };
+
+    var selectMarker = function(marker) {
+      marker.setOptions({'opacity': 1});
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    };
+
+    var unselectMarker = function(marker) {
+      marker.setAnimation(null);
+      marker.setOptions({'opacity': 0.4});
     };
 
     var convertCoordinates = function(str) {
@@ -24,6 +35,8 @@ function Map($http) {
 
     var Map = {
       createMarker: createMarker,
+      selectMarker: selectMarker,
+      unselectMarker: unselectMarker,
       convertCoordinates: convertCoordinates
     };
     return Map;

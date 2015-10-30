@@ -19,30 +19,30 @@ function MapController($scope, Map, Water, State) {
   $scope.currentstate = {name: ''};
   $scope.oneAtATime = true;
   $scope.selectedMarker = undefined;
+  $scope.currentWater = {};
   $scope.searchState = function(state) {
       Water.queryState(state.name).then(function(data) {
         var allData = data.data;
+        console.log(allData);
         $scope.stateWater[state.name] = [];
         for (var i = 0; i < allData.length; i++) {
           allData[i].markerIndex = $scope.markerIndex;
           $scope.stateWater[state.name].push(allData[i]);
-          var marker = Map.createMarker(allData[i].loc, $scope.map, allData[i].name);
-          marker.setOptions({'opacity': 0.4});
-          $scope.markers.push(marker);
+          $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
           $scope.markerIndex++;
         }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
         $scope.currentstate.name = state.name;
       });
   };
-  $scope.selectMarker = function(markerIndex) {
+  $scope.selectMarker = function(water) {
+    $scope.currentWater = water;
+    markerIndex = water.markerIndex;
     if ($scope.selectedMarker !== undefined) {
-      $scope.markers[$scope.selectedMarker].setAnimation(null);
-      $scope.markers[$scope.selectedMarker].setOptions({'opacity': 0.4});
+      Map.unselectMarker($scope.markers[$scope.selectedMarker]);
     }
-    $scope.selectedMarker = markerIndex;
-    $scope.markers[$scope.selectedMarker].setOptions({'opacity': 1});
-    $scope.markers[$scope.selectedMarker].setAnimation(google.maps.Animation.BOUNCE);
+    $scope.selectedMarker = $scope.currentWater.markerIndex;
+    Map.selectMarker($scope.markers[$scope.selectedMarker]);
   };
   State.allStates().then(function(data) {
     for (var i = 0; i < data.data.length; i++) {
