@@ -1,6 +1,8 @@
 #map {
-  height: 500px;
-  width: 700px;
+  height: 300px;
+  width: 400px;
+  text-align: center;
+  display: inline-block;
 }
 
 .dropdown-scroll {
@@ -13,7 +15,7 @@
   border: 2px solid black;
   display: inline-block;
   height: 550px;
-  width: 300px;
+  width: 200px;
   vertical-align: top;
   overflow: auto;
 }
@@ -21,12 +23,21 @@
 #map-container {
   border: 2px solid red;
   display: inline-block;
-  width: 725px;
+  width: 404px;
   height: 550px;
+  position: relative;
 }
 
 #state-list {
   text-align: center;
+}
+
+#details-container {
+  height: 550px;
+  width: 500px;
+  vertical-align: top;
+  border: 2px solid blue;
+  display: inline-block;
 }
 
 #water-list {

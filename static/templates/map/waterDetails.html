@@ -1,0 +1,15 @@
+<div id="water-details">
+  <div id="title">Water Measurements for {{waterbody.name}}</div>
+    <div id="current-measure">
+      <span> The current water flow is: {{recent.value}} cfs</span>
+      <div id="date">
+        <span> Measurement recorded on {{recent.measured_at}} 
+      </div>
+    </div>
+  </div>
+  <div id="weather-details" weatherdetails weather="weather"></div>
+  <div id="line-graph">
+    <canvas id="line" class="chart chart-line" chart-data="graph.data" chart-labels="graph.labels" chart-legend="true" chart-series="graph.series" chart-click="onClick" chart-options="graph.options" >
+    </canvas> 
+  </div>
+<div>
