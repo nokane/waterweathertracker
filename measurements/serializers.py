@@ -5,3 +5,4 @@ class MeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement
         fields = ('id', 'value', 'measured_at', 'body')
+        ordering = ('measured_at')
