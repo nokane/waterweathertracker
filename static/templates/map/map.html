@@ -2,10 +2,13 @@
   <div id="state-container">
     <div id="state-list" statelist states="states" currentstate="currentstate" lookupState="lookupState" on-click="searchState(lookupState)">
     </div>
-    <div waterlist statewater="stateWater" on-click="selectMarker(markerIndex)"></div>
+    <div waterlist statewater="stateWater" on-click="selectMarker(water)"></div>
+  </div>
+  <div id="details-container">
+    <div waterdetails waterbody="currentWater" graph="graph" recent="recentMeasure" measurements="waterMeasurements" weather="weatherData" ng-hide="hideDetails"></div>
   </div>
   <div id="map-container">
-    <div id="map"></div>
+    <div id="map" style="transform:translateY(50%);"></div>
     <div id="markers" ng-repeat="marker in markers"></div>
   </div>
 </div>
