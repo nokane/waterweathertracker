@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     'states',
     'compressor',
     'measurements',
-    'waters'
+    'waters',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,7 +126,10 @@ BOWER_INSTALLED_APPS = (
     "bootstrap#~3.3.5",
     "bootstrap-material-design",
     "angular-bootstrap",
-    "ng-dialog"
+    "ng-dialog",
+    "angular-chart.js",
+    "Chart.js"
+
 )
 
 STATICFILES_FINDERS = (
