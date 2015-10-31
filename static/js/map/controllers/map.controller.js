@@ -78,8 +78,6 @@ function MapController($scope, Map, Water, State, Weather) {
     for (var i = 0; i < data.data.length; i++) {
       $scope.states.push(data.data[i]);
     }
-    $scope.currentstate.name = "Select State";
-
   });
 
 };

@@ -1,9 +1,8 @@
-<div id="water-list">
-  A list of Rivers for Each State
-  <uib-accordion>
-    <uib-accordion-group ng-repeat="(key, value) in statewater" heading="{{key}}">
-      <ul role="menu">
-        <li tabindex="-1" ng-repeat="water in value | orderBy:'name'" role="menuitem" ng-click="eventHandler({water: water})"><a href="#">{{water.name}}</a></li>
+<div id="accordion-list">
+  <uib-accordion id="water-list">
+    <uib-accordion-group ng-repeat="(key, value) in statewater" class="state-name" heading="{{key}}">
+      <ul role="menu" id="river-menu">
+        <li class="river-name" tabindex="-1" ng-repeat="water in value | orderBy:'name'" role="menuitem" ng-click="eventHandler({water: water})"><a href="#">{{water.name}}</a><hr></li>
       </ul>
     </uib-accordion-group>
   </uib-accordion>
