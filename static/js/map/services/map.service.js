@@ -33,7 +33,15 @@ function Map($http) {
       return {lat: latitude, lng:longitude}
     }
 
+    var changeCenter = function(map, state) {
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': state}, function(results, status) {
+        map.setCenter(results[0].geometry.location);
+      });
+    }
+
     var Map = {
+      changeCenter: changeCenter,
       createMarker: createMarker,
       selectMarker: selectMarker,
       unselectMarker: unselectMarker,

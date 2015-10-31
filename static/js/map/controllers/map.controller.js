@@ -40,6 +40,7 @@ function MapController($scope, Map, Water, State, Weather) {
           $scope.stateWater[state.name].push(allData[i]);
           $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
           $scope.markerIndex++;
+          Map.changeCenter($scope.map, state.name);
         }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
         $scope.currentstate.name = state.name;
