@@ -3,8 +3,10 @@ var wwtracker = angular.module('wwtracker', [
       'ui.bootstrap',
       'wwtracker.states.services',
       'wwtracker.map.controllers',
+      'wwtracker.weather.services',
       'wwtracker.map.services',
-      'wwtracker.water.services'
+      'wwtracker.water.services',
+      'chart.js'
     ]);
 
 wwtracker.config(function($stateProvider, $urlRouterProvider) {
