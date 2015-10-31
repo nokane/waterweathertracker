@@ -40,10 +40,10 @@ function MapController($scope, Map, Water, State, Weather) {
           $scope.stateWater[state.name].push(allData[i]);
           $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
           $scope.markerIndex++;
-          Map.changeCenter($scope.map, state.name);
         }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
         $scope.currentstate.name = state.name;
+        Map.changeCenter($scope.map, state.name);
       });
   };
 
@@ -68,6 +68,8 @@ function MapController($scope, Map, Water, State, Weather) {
       Weather.queryWeather($scope.currentWater.coordinates).then(function(weatherData) {
         $scope.weatherData = weatherData.data;
         console.log($scope.weatherData);
+        console.log($scope.weatherData);
+        Map.changeCenter($scope.map, $scope.currentWater.coordinates);
       });
     });
   };

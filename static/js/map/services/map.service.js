@@ -33,12 +33,18 @@ function Map($http) {
       return {lat: latitude, lng:longitude}
     }
 
-    var changeCenter = function(map, state) {
+    var changeCenter = function(map, location) {
       var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({'address': state}, function(results, status) {
+      var options = {};
+      if (typeof location === 'string') {
+        options['address'] = location;
+      } else {
+        options['location'] = new google.maps.LatLng(location.lat, location.lng);
+      }
+      geocoder.geocode(options, function(results, status) {
         map.setCenter(results[0].geometry.location);
       });
-    }
+    };
 
     var Map = {
       changeCenter: changeCenter,
