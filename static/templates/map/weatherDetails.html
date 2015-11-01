@@ -1,15 +1,11 @@
 <div id="weather">
-  WATER DETAILS HERE
   <div id="conditions">
-    <span>Current Weather Condition: {{weather.weather[0].description}}</span>
+    <span class="label-value">Current Weather Condition: </span><span class="value-bold">{{weather.weather[0].description}}</span>
   </div>
   <div id="temperature">
-    <span>The current temperture is: {{weather.main.temp}} °F</span>
+    <span class="label-value">Temperature: </span><span class="value-bold"> {{weather.main.temp}} °F</span>
   </div>
   <div class="wind">
-    <span>The current windspeed is: {{weather.wind.speed}} mph  </span>
+    <span class="label-value">Wind speed: </span><span class="value-bold"> {{weather.wind.speed}} mph</span>
   </div>
-
-
-
 </div>

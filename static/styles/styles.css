@@ -5,23 +5,15 @@
   display: inline-block;
 }
 
-.dropdown-scroll {
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
-}
-
 #state-container {
-  border: 2px solid black;
   display: inline-block;
   height: 550px;
-  width: 200px;
+  width: 204px;
   vertical-align: top;
   overflow: auto;
 }
 
 #map-container {
-  border: 2px solid red;
   display: inline-block;
   width: 404px;
   height: 550px;
@@ -33,13 +25,81 @@
 }
 
 #details-container {
-  height: 550px;
+  min-height: 550px;
   width: 500px;
   vertical-align: top;
-  border: 2px solid blue;
+  border: 1px solid gray;
+  border-radius: 5px;
   display: inline-block;
+  padding: 15px;
+  margin: 10px;
+}
+
+#list-title {
+  font-size: 1.2em;
+  padding-left: 9px;
+  padding-bottom: 10px;
+}
+
+#single-button {
+  font-size:1.25em;
+}
+#state-dropdown {
+  z-index: 1;
+  max-height: 240px;
+  overflow-y: scroll;
+  list-style: none;
+} 
+
+#river-menu {
+  padding-left: 0px;
+}
+
+#state-list {
+  height: 60px;
+}
+
+.river-name {
+  list-style: none;
 }
 
 #water-list {
+  height: 445px;
+  width: 200px;
+  overflow: auto;
+  vertical-align: top;
+  margin-top: 15px;
+}
 
+#title {
+  font-size: 1.5em;
+}
+
+#headline {
+  font-weight: 700;
+  display: block;
+}
+
+#current-measure {
+  font-size: 1.1em;
+  margin: 10px;
+}
+
+.label-value {
+  font-size: 1.2em;
+}
+
+.value-bold {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+#weather {
+  margin: 10px;
+}
+
+#graph-title {
+  font-weight: 700;
+  font-size: 1.45em;
+  padding: 5px;
 }

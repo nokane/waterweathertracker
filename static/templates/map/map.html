@@ -2,7 +2,8 @@
   <div id="state-container">
     <div id="state-list" statelist states="states" currentstate="currentstate" lookupState="lookupState" on-click="searchState(lookupState)">
     </div>
-    <div waterlist statewater="stateWater" on-click="selectMarker(water)"></div>
+    <span id="list-title">Bodies of Water by State</span>
+    <div id="water-list" waterlist statewater="stateWater" on-click="selectMarker(water)"></div>
   </div>
   <div id="details-container">
     <div waterdetails waterbody="currentWater" graph="graph" recent="recentMeasure" measurements="waterMeasurements" weather="weatherData" ng-hide="hideDetails"></div>
