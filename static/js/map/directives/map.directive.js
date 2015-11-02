@@ -17,7 +17,8 @@ wwtracker.directive('waterlist', function() {
     scope: {
         statewater: "=",
         currentstate: "=",
-        eventHandler: '&onClick'
+        eventHandler: '&onClick',
+        clickHandler: '&clickEvent'
     },
     transclude: true,
     templateUrl: 'static/templates/map/waterList.html',

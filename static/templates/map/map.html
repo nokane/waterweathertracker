@@ -1,15 +1,13 @@
 <div id="asset-container">
   <div id="state-container">
-    <div id="state-list" statelist states="states" currentstate="currentstate" lookupState="lookupState" on-click="searchState(lookupState)">
-    </div>
     <span id="list-title">Bodies of Water by State</span>
-    <div id="water-list" waterlist statewater="stateWater" on-click="selectMarker(water)"></div>
+    <div id="water-list" waterlist statewater="stateWater" click-event="searchState(statename)" on-click="selectMarker(water)"></div>
   </div>
-  <div id="details-container">
+  <div id="details-container" ng-class="overlapMap ? 'hidden' : ''">
     <div waterdetails waterbody="currentWater" graph="graph" recent="recentMeasure" measurements="waterMeasurements" weather="weatherData" ng-hide="hideDetails"></div>
   </div>
-  <div id="map-container">
-    <div id="map" style="transform:translateY(50%);"></div>
+  <div id="map-container" ng-class="overlapMap ? 'overlap' : ''">
+    <div id="map" ng-class="overlapMap ? 'overlap' : ''" ng-style="!overlapMap ? {'transform':'translateY(50%)'} : {}"></div>
     <div id="markers" ng-repeat="marker in markers"></div>
   </div>
 </div>
