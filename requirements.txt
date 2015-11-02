@@ -8,7 +8,9 @@ Django==1.8.4
 django-appconf==1.0.1
 django-bootstrap3==6.2.2
 django-bower==5.0.4
+django-common-helpers==0.7.0
 django-compressor==1.5
+django-cron==0.4.3
 django-filter==0.11.0
 django-pipeline==1.5.4
 djangorestframework==3.2.4
