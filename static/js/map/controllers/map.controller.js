@@ -26,10 +26,35 @@ function MapController($scope, Map, Water, State, Weather) {
   $scope.graph.series = ['Water Flow: cubic feet/second (ft3/s)'];
   $scope.graph.labels = [];
   $scope.graph.data = [[]];
-  $scope.graph.options = { bezierCurve : false};
+  $scope.graph.options = { bezierCurve : false };
   $scope.weatherData = {};
-  $scope.hideDetails = true;
   $scope.overlapMap = true;
+
+  $scope.selectMarker = function(water) {
+    $scope.overlapMap = false;
+    $scope.graph.labels = [];
+    $scope.graph.data = [[]];
+    $scope.currentWater = water;
+    google.maps.event.trigger(map, 'resize');
+    $scope.currentWater.coordinates = Map.convertCoordinates($scope.currentWater.loc);
+    if ($scope.selectedMarker !== undefined) {
+      Map.unselectMarker($scope.markers[$scope.selectedMarker]);
+    }
+    $scope.selectedMarker = $scope.currentWater.markerIndex;
+    Map.selectMarker($scope.markers[$scope.selectedMarker]);
+    Water.queryWater($scope.currentWater.id).then(function(data) {
+      $scope.waterMeasurements = data.data;
+      $scope.recentMeasure = Water.recentMeasure($scope.waterMeasurements);
+      $scope.graph = Water.prepareGraph($scope.waterMeasurements, $scope.graph);
+      Weather.queryWeather($scope.currentWater.coordinates).then(function(weatherData) {
+        $scope.weatherData = weatherData.data;
+        console.log($scope.weatherData);
+        console.log($scope.weatherData);
+        Map.changeCenter($scope.map, $scope.currentWater.coordinates);
+        $scope.map.setZoom(12);
+      });
+    });
+  };
 
   $scope.searchState = function(state) {
       google.maps.event.trigger(map, 'resize');
@@ -42,7 +67,7 @@ function MapController($scope, Map, Water, State, Weather) {
           for (var i = 0; i < allData.length; i++) {
             allData[i].markerIndex = $scope.markerIndex;
             $scope.stateWater[state].push(allData[i]);
-            $scope.markers.push(Map.createMarker(allData[i].loc, $scope.map, allData[i].name));
+            $scope.markers.push(Map.createMarker(allData[i], $scope.map, $scope.selectMarker.bind(this, allData[i])));
             $scope.markerIndex++;
           }
         // $scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers);
@@ -56,12 +81,13 @@ function MapController($scope, Map, Water, State, Weather) {
   };
 
   $scope.selectMarker = function(water) {
-    $scope.overlapMap = false;
-    $scope.hideDetails = false;
+    if ($scope.overlapMap) {
+      $scope.overlapMap = false;
+      google.maps.event.trigger(map, 'resize');
+    }
     $scope.graph.labels = [];
     $scope.graph.data = [[]];
     $scope.currentWater = water;
-    google.maps.event.trigger(map, 'resize');
     $scope.currentWater.coordinates = Map.convertCoordinates($scope.currentWater.loc);
     console.log($scope.currentWater);
     if ($scope.selectedMarker !== undefined) {

@@ -1,13 +1,16 @@
 function Map($http) {
 
-    var createMarker = function(str, map, title) {
+    var createMarker = function(data, map, fn) {
       var marker = new google.maps.Marker({
-        'position': Map.convertCoordinates(str),
+        'position': Map.convertCoordinates(data.loc),
         'map': map,
-        'title': title
+        'title': data.name
       });
       marker.setOptions({'opacity': 0.4});
-      return marker
+      google.maps.event.addListener(marker, 'click', function() {
+        fn();
+      });
+      return marker;
     };
 
     var selectMarker = function(marker) {
