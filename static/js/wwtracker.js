@@ -1,6 +1,7 @@
 var wwtracker = angular.module('wwtracker', [
       'ui.router',
       'ui.bootstrap',
+      'arrayFilter',
       'wwtracker.states.services',
       'wwtracker.map.controllers',
       'wwtracker.weather.services',
