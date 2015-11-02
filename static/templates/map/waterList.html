@@ -1,6 +1,6 @@
 <div id="accordion-list">
   <uib-accordion id="water-list">
-    <uib-accordion-group ng-repeat="(key, value) in statewater" class="state-name" heading="{{key}}">
+    <uib-accordion-group ng-repeat="(key, value) in statewater | toArray | orderBy:'$key'" class="state-name" heading="{{value.$key}}" ng-click="clickHandler({statename: value.$key});">
       <ul role="menu" id="river-menu">
         <li class="river-name" tabindex="-1" ng-repeat="water in value | orderBy:'name'" role="menuitem" ng-click="eventHandler({water: water})"><a href="#">{{water.name}}</a><hr></li>
       </ul>
