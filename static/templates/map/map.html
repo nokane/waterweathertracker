@@ -4,7 +4,7 @@
     <div id="water-list" waterlist statewater="stateWater" click-event="searchState(statename)" on-click="selectMarker(water)"></div>
   </div>
   <div id="details-container" ng-class="overlapMap ? 'hidden' : ''">
-    <div waterdetails waterbody="currentWater" graph="graph" recent="recentMeasure" measurements="waterMeasurements" weather="weatherData" ng-hide="hideDetails"></div>
+    <div waterdetails waterbody="currentWater" graph="graph" recent="recentMeasure" measurements="waterMeasurements" weather="weatherData" ng-hide="overlapMan"></div>
   </div>
   <div id="map-container" ng-class="overlapMap ? 'overlap' : ''">
     <div id="map" ng-class="overlapMap ? 'overlap' : ''" ng-style="!overlapMap ? {'transform':'translateY(50%)'} : {}"></div>
