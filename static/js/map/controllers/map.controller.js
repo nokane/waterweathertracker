@@ -48,8 +48,6 @@ function MapController($scope, Map, Water, State, Weather) {
       $scope.graph = Water.prepareGraph($scope.waterMeasurements, $scope.graph);
       Weather.queryWeather($scope.currentWater.coordinates).then(function(weatherData) {
         $scope.weatherData = weatherData.data;
-        console.log($scope.weatherData);
-        console.log($scope.weatherData);
         Map.changeCenter($scope.map, $scope.currentWater.coordinates);
         $scope.map.setZoom(12);
       });
@@ -62,7 +60,6 @@ function MapController($scope, Map, Water, State, Weather) {
       if ($scope.stateWater[state] === undefined || $scope.stateWater[state].length === 0) {
         Water.queryState(state).then(function(data) {
           var allData = data.data;
-          console.log(allData);
           $scope.stateWater[state] = [];
           for (var i = 0; i < allData.length; i++) {
             allData[i].markerIndex = $scope.markerIndex;
@@ -83,7 +80,6 @@ function MapController($scope, Map, Water, State, Weather) {
   $scope.selectMarker = function(water) {
     if ($scope.overlapMap) {
       $scope.overlapMap = false;
-      google.maps.event.trigger(map, 'resize');
     }
     $scope.graph.labels = [];
     $scope.graph.data = [[]];
@@ -96,17 +92,14 @@ function MapController($scope, Map, Water, State, Weather) {
     $scope.selectedMarker = $scope.currentWater.markerIndex;
     Map.selectMarker($scope.markers[$scope.selectedMarker]);
     Water.queryWater($scope.currentWater.id).then(function(data) {
-      console.log(data);
       $scope.waterMeasurements = data.data;
-      console.log(Water.recentMeasure($scope.waterMeasurements));
       $scope.recentMeasure = Water.recentMeasure($scope.waterMeasurements);
       $scope.graph = Water.prepareGraph($scope.waterMeasurements, $scope.graph);
       Weather.queryWeather($scope.currentWater.coordinates).then(function(weatherData) {
         $scope.weatherData = weatherData.data;
-        console.log($scope.weatherData);
-        console.log($scope.weatherData);
         Map.changeCenter($scope.map, $scope.currentWater.coordinates);
         $scope.map.setZoom(12);
+        google.maps.event.trigger(map, 'resize');
       });
     });
   };
