@@ -31,6 +31,12 @@
   overflow: auto;
 }
 
+#head-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
 #map-container {
   display: inline-block;
   width: 404px;
