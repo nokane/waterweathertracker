@@ -128,8 +128,8 @@ BOWER_INSTALLED_APPS = (
     "angular-bootstrap",
     "ng-dialog",
     "angular-chart.js",
-    "Chart.js"
-
+    "Chart.js",
+    "underscore"
 )
 
 STATICFILES_FINDERS = (
