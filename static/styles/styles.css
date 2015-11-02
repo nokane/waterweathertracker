@@ -34,7 +34,7 @@
 #head-title {
   text-align: center;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 #map-container {
@@ -130,4 +130,12 @@
   font-weight: 700;
   font-size: 1.45em;
   padding: 5px;
+}
+
+#about {
+  width:700px;
+  margin-left: auto;
+  margin-right:auto;
+  font-size: 1.15em;
+  margin-bottom: 30px;
 }
