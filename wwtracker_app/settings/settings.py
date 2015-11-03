@@ -13,12 +13,13 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import ConfigParser
-if 'USER' in os.environ:
-    print "LOCAL"
-    from local import *
-else:
+import sys
+if 'RDS_DB_NAME' in os.environ:
     print "PROD"
     from prod import *
+else:
+    print "LOCAL"
+    from local import *
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', '..'))
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +48,7 @@ INSTALLED_APPS = (
     'compressor',
     'measurements',
     'waters',
+    'django_cron'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +64,28 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'wwtracker_app.urls'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'stderr': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stderr,
+            },
+        },
+    'loggers': {
+        'django_cron': {
+            'handlers': ['stderr'],
+            'level': 'INFO'
+        },
+    },
+}
+
+CRON_CLASSES = [
+    "wwtracker_app.cron.WaterDataDump",
+    "wwtracker_app.cron.InsertWaterData"
+]
 
 
 TEMPLATES = [
