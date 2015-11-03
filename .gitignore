@@ -1,7 +1,6 @@
 .DS_Store
 *.pyc
 bower_components
-waterData.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
