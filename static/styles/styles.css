@@ -139,3 +139,8 @@
   font-size: 1.15em;
   margin-bottom: 30px;
 }
+
+#asset-container {
+  min-width: 1200px;
+  margin-bottom: 50px;
+}
