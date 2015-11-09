@@ -6,8 +6,8 @@ import requests
 from measurements.models import Measurement
 
 class WaterDataDump(CronJobBase):
-    RUN_AT_TIMES = ['00:30']
-    schedule = Schedule(run_at_times=RUN_AT_TIMES)
+    RUN_EVERY_MINS = 720
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'wwtracker_app.scripts.queryUSGS'
     DATA_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'data'));
     def do(self):
@@ -19,8 +19,8 @@ class WaterDataDump(CronJobBase):
             json.dump(allWater, outfile)
 
 class InsertWaterData(CronJobBase):
-    RUN_AT_TIMES = ['01:45']
-    schedule = Schedule(run_at_times=RUN_AT_TIMES)
+    RUN_EVERY_MINS = 1440
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'wwtracker_app.scripts.queryUSGS'
     DATA_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'data'));
     def do(self):
