@@ -13,6 +13,12 @@
   padding-left: 20px;
   padding-top: 20px;
 }
+
+
+.panel-heading {
+  background-color: #d3d3d3 !important;
+}
+
 #map.overlap {
   height: 495px;
   width: 695px;
