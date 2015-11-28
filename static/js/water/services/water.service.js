@@ -24,7 +24,7 @@ function Water($http) {
     var prepareGraph = function(measurements, graph) {
       graph.labels = [];
       graph.data = [[]];
-      for (var i = 0; i < measurements.length; i++) {
+      for (var i = measurements.length-7; i < measurements.length; i++) {
         var date = new Date(new Date(measurements[i].measured_at));
         var month = date.getMonth()+1
         var dateLabel = "" + month + "/" + date.getDate() + "/" + date.getFullYear();
