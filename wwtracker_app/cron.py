@@ -4,9 +4,9 @@ import os
 import json
 import requests
 from measurements.models import Measurement
-
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'data'));
 class WaterDataDump(CronJobBase):
-    RUN_EVERY_MINS = 720
+    RUN_EVERY_MINS = 1
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'wwtracker_app.scripts.queryUSGS'
     DATA_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'data'));
@@ -15,8 +15,12 @@ class WaterDataDump(CronJobBase):
         stateList = ["al","ak","az","ar","ca","co","ct","de","dc","fl","ga","hi","id","il","in","ia","ks","ky","la","me","md","ma","mi","mn","ms","mo","mt","ne","nv","nh","nj","nm","ny","nc","nd","oh","ok","or","pa","ri","sc","sd","tn","tx","ut","vt","va","wa","wv","wi","wy","pr"]
         for state in stateList:
             scripts.parseWaterData(allWater,state)
-        with open(os.path.join(DATA_DIR, 'waterData.json'), 'w') as outfile:
-            json.dump(allWater, outfile)
+        print allWater
+        try: 
+            with open(os.path.join(DATA_DIR, 'waterData.json'), 'w') as outfile:
+                json.dump(allWater, outfile)
+        except:
+            print "there was an error with the json file write"
 
 class InsertWaterData(CronJobBase):
     RUN_EVERY_MINS = 1440
